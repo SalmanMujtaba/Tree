@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'file-structure';
+
+  date: number;
+
+  constructor() {
+    this.date = Date.now();
+  }
 }

@@ -1,0 +1,8 @@
+<li class="tree-node">
+  <span class="node-label">{{ node.name }}</span>
+  <ul *ngIf="node.children && node.children.length > 0" class="nested">
+    <li *ngFor="let child of node.children">
+      <atl-tree-node [node]="child"></atl-tree-node>
+    </li>
+  </ul>
+</li>

@@ -1,0 +1,5 @@
+<ul *ngIf="fileData" class="tree">
+  <li *ngFor="let node of fileData">
+    <atl-tree-node [node]="node"></atl-tree-node>
+  </li>
+</ul>
