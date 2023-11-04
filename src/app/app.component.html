@@ -1,6 +1,12 @@
-<p>{{date | date:'y:M:d:h:mm a'}}</p>
-
-<button type="button" routerLink="/tree">Tree</button>
-<button type="button" routerLink="">Home</button>
-
-<router-outlet></router-outlet>
+<header>
+  <nav class="header__nav">
+    <a href="javascript:void(0)" routerLink="/tree">Tree</a>
+    <a href="javascript:void(0)" routerLink="">Home</a>
+  </nav>
+</header>
+<main>
+  <router-outlet></router-outlet>
+</main>
+<footer>
+  <p>{{date | date:'y:M:d:h:mm a'}}</p>
+</footer>

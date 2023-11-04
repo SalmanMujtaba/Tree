@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
 import { IFileStructureData } from './models/file.model';
@@ -11,6 +11,7 @@ import { FileDataService } from './services/file-data.service';
 })
 export class TreeComponent implements OnInit {
   fileData: IFileStructureData[];
+  @Input() customCss: string;
   constructor(protected fileDataService: FileDataService, protected http: HttpClient) { }
 
   ngOnInit(): void {

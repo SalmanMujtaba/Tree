@@ -1,0 +1,8 @@
+.tree {
+  display: grid;
+  place-content: center;
+  place-items: center;
+  &__list {
+    list-style: none;
+  }
+}

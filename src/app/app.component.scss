@@ -1,0 +1,27 @@
+header {
+  height: 4rem;
+  background-color: darkgray;
+}
+
+main {
+  width: 1280px;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  background-color: darkgray;
+  height: 4rem;
+  width: 100vw;
+}
+
+.header__nav,
+footer p {
+  display: flex;
+  place-content: center;
+  place-items: center;
+  height: 100%;
+  gap: 10px;
+}

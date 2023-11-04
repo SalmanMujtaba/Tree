@@ -9,7 +9,11 @@ import { IFileStructureData } from '../../models/file.model';
 })
 export class TreeNodeComponent implements OnInit, OnChanges {
   @Input() node: IFileStructureData;
-  constructor() { }
+  @Input() expanded: boolean;
+  arrowDown: any;
+
+  constructor() {
+  }
 
   ngOnInit(): void {
     console.log(this.node);

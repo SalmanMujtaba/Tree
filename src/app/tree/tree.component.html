@@ -1,5 +1,8 @@
-<ul *ngIf="fileData" class="tree">
-  <li *ngFor="let node of fileData">
-    <atl-tree-node [node]="node"></atl-tree-node>
-  </li>
-</ul>
+<section class="tree">
+  <h1>File Structure</h1>
+  <ul *ngIf="fileData" class="tree__list" [ngClass]="customCss">
+    <li *ngFor="let node of fileData">
+      <atl-tree-node [node]="node" [expanded]="true"></atl-tree-node>
+    </li>
+  </ul>
+</section>

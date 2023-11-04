@@ -1,0 +1,23 @@
+.tree-node {
+  list-style: none;
+  position: relative;
+  &--root {
+    cursor: pointer;
+    &::before {
+      content: '>';
+      position: absolute;
+      left: -0.75rem;
+    }
+  }
+  &--leaf {
+    &::before {
+      content: '•';
+      position: absolute;
+      left: -0.5rem;
+    }
+  }
+
+  &--nested {
+    list-style: none;
+  }
+}
