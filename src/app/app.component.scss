@@ -4,8 +4,10 @@ header {
 }
 
 main {
-  width: 1280px;
-  margin: 0 auto;
+  width: 100dvw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-top: 2rem;
 }
 

@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
 
 import { IFileStructureData } from '../../models/file.model';
 
@@ -7,17 +7,40 @@ import { IFileStructureData } from '../../models/file.model';
   templateUrl: './tree-node.component.html',
   styleUrls: ['./tree-node.component.scss']
 })
-export class TreeNodeComponent implements OnChanges {
+export class TreeNodeComponent implements OnChanges, AfterViewInit {
   @Input() node: IFileStructureData;
   @Input() expanded: boolean;
   buttonAriaLabel: string;
+  @ViewChild('treeNode') treeNode: ElementRef<HTMLLIElement>;
   constructor() { }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes && changes['node'] && changes['node'].currentValue) {
-      console.log(changes);
-      this.node = changes['node'].currentValue;
-      this.buttonAriaLabel = this.node.name + ' list ' + this.expanded;
+    if (changes) {
+      if (changes['node'] && changes['node'].currentValue) {
+        this.node = changes['node'].currentValue;
+        this.buttonAriaLabel = this.node.name + ' list ' + this.expanded;
+      }
     }
+  }
+
+  ngAfterViewInit(): void {
+    if (this.node.children) {
+      this.processAriaSelected('true');
+      this.processAriaExpanded('true');
+    }
+  }
+
+  flipExpansion() {
+    this.expanded = !this.expanded;
+    this.processAriaSelected(this.expanded.toString());
+    this.processAriaExpanded(this.expanded.toString());
+  }
+
+  processAriaSelected(value: string) {
+    this.treeNode.nativeElement.ariaSelected = value;
+  }
+
+  processAriaExpanded(expanded: string) {
+    this.treeNode.nativeElement.ariaExpanded = expanded;
   }
 }

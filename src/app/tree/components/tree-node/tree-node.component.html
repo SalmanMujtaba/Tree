@@ -1,10 +1,11 @@
-<li role="tree-item" class="tree-node">
-  <div [attr.aria-label]="buttonAriaLabel" (keyup.enter)="expanded =!expanded" (keyup.space)="expanded = !expanded"
-    role="button" [tabindex]="node.children? 0: -1" (click)="expanded = !expanded" [class.expanded-icon]="expanded"
-    [class.collapsed-icon]="!expanded" [ngClass]="!node.children? 'tree-node__leaf': 'tree-node__root'">{{ node.name }}
+<li #treeNode class="tree-node">
+  <div [attr.aria-label]="buttonAriaLabel" (keyup.enter)="node.children && flipExpansion()"
+    (keyup.space)="node.children && flipExpansion()" role="button" [tabindex]="node.children? 0: -1"
+    (click)="node.children && flipExpansion()" [class.expanded-icon]="expanded" [class.collapsed-icon]="!expanded"
+    [ngClass]="!node.children? 'tree-node__leaf': 'tree-node__root'">{{ node.name }}
   </div>
   <ul role="group" *ngIf="expanded && node.children && node.children.length> 0" class="tree-node__nested">
-    <li [attr.aria-expanded]="!!expanded" *ngFor="let child of node.children">
+    <li role="treeitem" *ngFor="let child of node.children">
       <atl-tree-node [expanded]="expanded" [node]="child"></atl-tree-node>
     </li>
   </ul>

@@ -1,7 +1,8 @@
 <section class="tree">
   <h1>File Structure</h1>
-  <ul *ngIf="fileData" class="tree__list" [ngClass]="customCss" role="tree" aria-label="File structure">
-    <li role="tree-item" *ngFor="let node of fileData">
+  <ul aria-multiselectable="true" *ngIf="fileData" class="tree__list" [ngClass]="customCss" role="tree"
+    aria-label="File structure">
+    <li role="treeitem" *ngFor="let node of fileData">
       <atl-tree-node [node]="node" [expanded]="expanded"></atl-tree-node>
     </li>
   </ul>
