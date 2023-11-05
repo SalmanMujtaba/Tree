@@ -11,7 +11,7 @@ import { FileDataService } from './services/file-data.service';
   styleUrls: ['./tree.component.scss']
 })
 export class TreeComponent implements OnInit {
-  fileData: IFileStructureData[];
+  fileData: IFileStructureData[] | undefined;
   @Input() customCss: string;
   expanded = true;
   constructor(public fileDataService: FileDataService, protected http: HttpClient) { }

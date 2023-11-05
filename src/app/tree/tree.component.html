@@ -6,9 +6,8 @@
       <atl-tree-node [node]="node" [expanded]="expanded"></atl-tree-node>
     </li>
   </ul>
-  {{fileData?.length}}
   <ng-template #noData>
-    <p>Sorry, there is no data available.</p>
+    <p aria-live="assertive" role="status" id="error-message">Sorry, there is no data available.</p>
   </ng-template>
 </section>
 <button (click)="fileDataService.refreshData()">Refresh button</button>

@@ -14,17 +14,17 @@
 
   &__leaf {
     &::before {
-      content: '•' !important;
+      content: '•';
       position: absolute;
       left: -0.5rem;
-      font-size: 1rem !important;
+      font-size: 1rem;
     }
   }
 
-  .collapsed-icon::before {
+  .tree-node__root.collapsed-icon::before {
     content: '▶';
   }
-  .expanded-icon::before {
+  .tree-node__root.expanded-icon::before {
     content: '▼';
   }
 
