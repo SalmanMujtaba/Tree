@@ -12,6 +12,7 @@ import { FileDataService } from './services/file-data.service';
 export class TreeComponent implements OnInit {
   fileData: IFileStructureData[];
   @Input() customCss: string;
+  expanded = true;
   constructor(protected fileDataService: FileDataService, protected http: HttpClient) { }
 
   ngOnInit(): void {

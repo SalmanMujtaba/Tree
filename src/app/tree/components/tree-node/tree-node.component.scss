@@ -1,23 +1,34 @@
 .tree-node {
   list-style: none;
   position: relative;
-  &--root {
+  width: 25rem;
+  &__root {
     cursor: pointer;
     &::before {
-      content: '>';
       position: absolute;
       left: -0.75rem;
-    }
-  }
-  &--leaf {
-    &::before {
-      content: '•';
-      position: absolute;
-      left: -0.5rem;
+      top: 0.3125rem;
+      font-size: 0.625rem;
     }
   }
 
-  &--nested {
+  &__leaf {
+    &::before {
+      content: '•' !important;
+      position: absolute;
+      left: -0.5rem;
+      font-size: 1rem !important;
+    }
+  }
+
+  .collapsed-icon::before {
+    content: '▶';
+  }
+  .expanded-icon::before {
+    content: '▼';
+  }
+
+  &__nested {
     list-style: none;
   }
 }
