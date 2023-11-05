@@ -1,10 +1,14 @@
 <section class="tree">
   <h1>File Structure</h1>
-  <ul aria-multiselectable="true" *ngIf="fileData" class="tree__list" [ngClass]="customCss" role="tree"
+  <ul aria-multiselectable="true" *ngIf="!!fileData else noData" class="tree__list" [ngClass]="customCss" role="tree"
     aria-label="File structure">
     <li role="treeitem" *ngFor="let node of fileData">
       <atl-tree-node [node]="node" [expanded]="expanded"></atl-tree-node>
     </li>
   </ul>
+  {{fileData?.length}}
+  <ng-template #noData>
+    <p>Sorry, there is no data available.</p>
+  </ng-template>
 </section>
 <button (click)="fileDataService.refreshData()">Refresh button</button>

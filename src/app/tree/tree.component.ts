@@ -17,8 +17,16 @@ export class TreeComponent implements OnInit {
   constructor(public fileDataService: FileDataService, protected http: HttpClient) { }
 
   ngOnInit(): void {
-    this.fileDataService.getFileData().pipe(take(1)).subscribe((data: IFileStructureData[]) => {
-      if (data) { this.fileData = data };
-    });
+    this.fileDataService.getFileData()
+      .pipe(take(1))
+      .subscribe({
+        next: (data) => {
+          console.log("next");
+          this.fileData = data;
+        },
+        error: (e) => {
+          console.log("error");
+        }
+      });
   }
 }
