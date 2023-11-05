@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { nodeData } from '../../mock-data/test-data';
 import { TreeNodeComponent } from './tree-node.component';
 
 describe('TreeNodeComponent', () => {
@@ -8,12 +9,13 @@ describe('TreeNodeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TreeNodeComponent ]
+      declarations: [TreeNodeComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(TreeNodeComponent);
     component = fixture.componentInstance;
+    component.node = nodeData[0];
     fixture.detectChanges();
   });
 
